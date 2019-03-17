@@ -10,9 +10,12 @@ OPENGL is required. Developer libraries of SDL2, SDL2-image and SDL2-TTF are req
 package gogame
 
 /*
-#cgo pkg-config: sdl2
+#cgo pkg-config: sdl2 x11
 #include "SDL.h"
 
+extern int width;
+extern int height;
+extern int initWidthAndHeight();
 extern int initSDL();
 extern SDL_Window * newScreen(char *title, int h, int v);
 extern SDL_Renderer * newRenderer( SDL_Window * screen );
@@ -39,6 +42,14 @@ var COLOR_RED = &Color{255, 0, 0, 255}
 var COLOR_BLUE = &Color{0, 0, 255, 255}
 
 // Use this function to create a window and a renderer (not visible to user)
+func InitXScreenSaver(title string) error {
+	if i := C.initWidthAndHeight(); i != 0 {
+		return errors.New("Error initializing from X Screensaver window")
+	}
+	h, v := GetWindowSize()
+	return Init(title, h, v)
+}
+
 func Init(title string, h, v int) error {
 	if i := C.initSDL(); i != 0 {
 		return errors.New("Error initializing SDL")
@@ -72,9 +83,13 @@ func SetFullScreen(fs bool) {
 
 // Get window size
 func GetWindowSize() (int, int) {
-	var w, h C.int
-	C.SDL_GetWindowSize(screen, &w, &h)
-	return int(w), int(h)
+	w, h := int(C.width), int(C.height)
+	if w == 0 || h == 0 {
+		var w, h C.int
+		C.SDL_GetWindowSize(screen, &w, &h)
+		return int(w), int(h)
+	}
+	return w, h
 }
 
 // Set window size
