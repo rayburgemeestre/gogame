@@ -1,6 +1,6 @@
 package cache
 
-import "github.com/pnegre/gogame"
+import "github.com/rayburgemeestre/gogame"
 import "log"
 
 var texCache = make(map[string]*gogame.Texture)

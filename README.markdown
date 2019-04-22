@@ -14,25 +14,25 @@ Others distros shoud have equivalent libraries avaliable.
 
 And now, the easy part (make sure you have a valid $GOPATH):
 
-    go get github.com/pnegre/gogame
+    go get github.com/rayburgemeestre/gogame
 
 Finally, compile the library and install it:
 
-    go install github.com/pnegre/gogame
+    go install github.com/rayburgemeestre/gogame
 
 ## Documentation
 
 Once you have installed the package, just run:
 
-    godoc github.com/pnegre/gogame | less
-    godoc github.com/pnegre/gogame/sprite | less
-    godoc github.com/pnegre/gogame/cache | less
+    godoc github.com/rayburgemeestre/gogame | less
+    godoc github.com/rayburgemeestre/gogame/sprite | less
+    godoc github.com/rayburgemeestre/gogame/cache | less
 
 Or you may prefer to view on the web browser:
 
     godoc -http=:6060
 
-Point your browser to http://localhost:6060/pkg/github.com/pnegre/gogame
+Point your browser to http://localhost:6060/pkg/github.com/rayburgemeestre/gogame
 
 ## Usage
 
@@ -41,9 +41,9 @@ Simple example:
     package main
 
     import (
-        "github.com/pnegre/gogame"
-        "github.com/pnegre/gogame/cache"
-        "github.com/pnegre/gogame/sprite"
+        "github.com/rayburgemeestre/gogame"
+        "github.com/rayburgemeestre/gogame/cache"
+        "github.com/rayburgemeestre/gogame/sprite"
         "log"
     )
 

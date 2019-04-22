@@ -1,6 +1,6 @@
 package sprite
 
-import "github.com/pnegre/gogame"
+import "github.com/rayburgemeestre/gogame"
 
 // Simple sprite. Intended to be used as a base type for game objects
 type Simple struct {

@@ -1,7 +1,7 @@
 package sprite
 
 import "container/list"
-import "github.com/pnegre/gogame"
+import "github.com/rayburgemeestre/gogame"
 
 type glist []*Group
 
